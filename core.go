@@ -22,6 +22,7 @@ type Collection interface {
 
 	// Iterator return the elements contained in this collection
 	Iterator() []interface{}
+
 }
 
 // AbstractCollection ...
@@ -77,5 +78,6 @@ type Queue interface {
 type AbstractQueue struct {
 	*AbstractCollection
 }
+
 
 
