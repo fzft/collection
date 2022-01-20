@@ -39,6 +39,15 @@ func (l *ArrayList) Get(index int) interface{} {
 	return l.elementData[index]
 }
 
+// Set replaces the element at the specified position in this list with the specified element
+// return the element previously at the specified position
+func (l *ArrayList) Set(index int, e interface{}) interface{} {
+	l.rangeCheckForAdd(index)
+	oldValue := l.elementData[index]
+	l.elementData[index] = e
+	return oldValue
+}
+
 func (l *ArrayList) GetSize() int {
 	return l.size
 }
@@ -219,5 +228,3 @@ func (l *ArrayList) batchRemove(c Collection, complement bool) bool {
 	}
 	return modified
 }
-
-
