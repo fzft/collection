@@ -20,6 +20,14 @@ func ArrayListTestSetup(tb testing.TB) (func(tb testing.TB), ArrayListTest) {
 	}, at
 }
 
+func TestNewArrayList_NewWithSlice(t *testing.T) {
+	s := []interface{}{1, 2, 3, 4, 5}
+	al := NewArrayListWithSlice(s)
+
+	assert.Equal(t, []interface{}{1, 2, 3, 4, 5}, al.Iterator())
+
+}
+
 func TestArrayList_Add(t *testing.T) {
 	teardownTest, at := ArrayListTestSetup(t)
 	defer teardownTest(t)

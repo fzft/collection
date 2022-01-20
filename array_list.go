@@ -26,6 +26,14 @@ func NewArrayList(initialCapacity int) *ArrayList {
 	return &ArrayList{elementData: make([]interface{}, initCap)}
 }
 
+func NewArrayListWithSlice(s []interface{}) *ArrayList {
+	l := new(ArrayList)
+	l.size = len(s)
+	l.elementData = make([]interface{}, l.size)
+	copy(l.elementData, s)
+	return l
+}
+
 // Get return the element at the specified position in this list
 func (l *ArrayList) Get(index int) interface{} {
 	return l.elementData[index]
