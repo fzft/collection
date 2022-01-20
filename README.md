@@ -39,3 +39,32 @@ func func main() {
 }
 
 ```
+## ArrayList
+
+implements the JAVA collection ArrayList, include removeAll, addAll, retainAll method
+
+```go
+import (
+		"github.com/fzft/collection"
+)
+
+func func main() {
+	
+	al1 := NewArrayList(0)
+	al.Add(1) // [1]
+    al.Add(2) // [2,3]
+    al.Add(3) // [1,2,3]
+    al.Add(4) // [1,2,3,4]
+	
+    al2 := NewArrayList(0)
+    al2.Add(5) // [5]
+    al2.Add(6) // [5,6]
+    al2.Add(7) // [5,6,7]
+    al2.Add(8) // [5,6,7,8]
+	
+	al1.AddAll(2, al2) // [1,2,5,6,7,8,3,4]
+	
+	al1.RemoveAll(al2) // [1,2,3,4]
+}
+
+```

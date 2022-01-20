@@ -75,6 +75,7 @@ type Queue interface {
 	Peek() interface{}
 }
 
+
 type AbstractQueue struct {
 	*AbstractCollection
 }
