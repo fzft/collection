@@ -76,6 +76,26 @@ func TestArrayList_Remove(t *testing.T) {
 	}
 }
 
+func TestArrayList_SubList(t *testing.T) {
+	teardownTest, at := ArrayListTestSetup(t)
+	defer teardownTest(t)
+
+	at.al.Add(1)
+	at.al.Add(2)
+	at.al.Add(3)
+	at.al.Add(4)
+	at.al.Add(5)
+	at.al.Add(6)
+
+	newAl := at.al.SubList(2, 5)
+
+	expected := []interface{}{3, 4, 5}
+
+	for i := 0; i < newAl.GetSize(); i++ {
+		assert.Equal(t, expected[i], newAl.Get(i))
+	}
+}
+
 func TestArrayList_AddAll(t *testing.T) {
 	teardownTest, at := ArrayListTestSetup(t)
 	defer teardownTest(t)

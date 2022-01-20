@@ -105,6 +105,11 @@ func (l *ArrayList) Add(e interface{}) bool {
 	return true
 }
 
+// SubList returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex exclusive
+func (l *ArrayList) SubList(fromIndex, toIndex int) *ArrayList {
+	return NewArrayListWithSlice(l.elementData[fromIndex:toIndex])
+}
+
 // RetainAll retains only the elements in this list that are contained in the specified collection
 func (l *ArrayList) RetainAll(c Collection) bool {
 	return l.batchRemove(c, true)
@@ -214,3 +219,5 @@ func (l *ArrayList) batchRemove(c Collection, complement bool) bool {
 	}
 	return modified
 }
+
+
